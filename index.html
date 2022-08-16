@@ -16,12 +16,12 @@
         <div class="content">
             <div class="board"></div>
             <div class="buttons">
-                <button onclick="changeColor('black')">Black</button>
-                <button onclick="changeColor('gray')">Gray</button>
-                <button onclick="changeColor('white')">Eraser</button>
+                <button class= "black" onclick="changeColor('black')">Black</button>
+                <button class="gray" onclick="changeColor('gray')">Gray</button>
+                <button class="white" onclick="changeColor('white')">Eraser</button>
                 <button onclick="resetBoard()">Reset</button>
             </div>
-            <div>
+            <div class="size">
                 <input
                   type="text"
                   placeholder="Size of Board"
@@ -29,6 +29,9 @@
                   onchange="changeSize(this.value)"
                 />
                 <button>Set Size</button>
+            </div>
+            <div class="error">
+                Input must be between 2 and 100
             </div>
         </div>
     </div>

@@ -1,5 +1,52 @@
+body {
+    background-color: #F7ECDE;
+}
+
+.flex-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.size {
+    margin-top: 5px;
+}
+
+
 .board {
     width: 500px;
     height: 500px;
     display: grid;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+button {
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+
+.black {
+    background-color: black;
+    color: white;
+}
+
+.gray {
+    background-color: lightgray;
+    color: black;
+}
+
+.white {
+    background-color: white;
+}
+
+.error {
+    margin-top: 5px;
 }
