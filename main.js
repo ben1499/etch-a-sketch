@@ -7,8 +7,12 @@ for (let i = 0; i < 16; i++) {
         div = document.createElement('div')
         div.classList.add('block');
         container.appendChild(div);
-        num++;
-        console.log(num);
     }
 }
 
+const blocks = document.querySelectorAll('.block');
+
+
+blocks.forEach((block) => block.addEventListener('mouseenter', () => {
+    block.style.backgroundColor = 'black';
+}))
