@@ -2,6 +2,9 @@ const container = document.querySelector('#container');
 const reset = document.querySelector('.reset');
 const gridSubmit = document.querySelector('.size-change');
 const errorText = document.querySelector('.error');
+const rainbow = document.querySelector('.rainbow');
+
+
 
 let div;
 let rowDiv;
@@ -19,14 +22,24 @@ for (let i = 0; i < 16; i++) {
     }
 }
 
+function changeColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    this.style.backgroundColor = 'black';
+}
+
+// const r = Math.floor(Math.random() * 256);
+//     const g = Math.floor(Math.random() * 256);
+//     const b = Math.floor(Math.random() * 256);
+//     this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
 let blocks = document.querySelectorAll('.block');
 blocks.forEach((block) => block.addEventListener('mouseenter', changeColor));
 
 
+rainbow.addEventListener('click', )
 
-function changeColor() {
-    this.style.backgroundColor = 'black';
-}
 
 
 

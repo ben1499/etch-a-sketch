@@ -33,3 +33,8 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.buttons {
+    display: flex;
+    gap: 18px;
+}
