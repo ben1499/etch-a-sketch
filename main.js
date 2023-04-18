@@ -88,6 +88,7 @@ gridSubmit.addEventListener('click', () => {
             rowDiv.appendChild(div);
         }
     }
+    gridSize = '';
     blocks = document.querySelectorAll('.block');
     blocks.forEach((block) => block.addEventListener('mouseenter', () => {
         block.style.backgroundColor = 'black';
