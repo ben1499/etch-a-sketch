@@ -89,7 +89,9 @@ gridSubmit.addEventListener('click', () => {
         }
     }
     blocks = document.querySelectorAll('.block');
-    blocks.forEach((block) => block.addEventListener('mouseenter', changeBlack));
+    blocks.forEach((block) => block.addEventListener('mouseenter', () => {
+        block.style.backgroundColor = 'black';
+    }));
 })
 
 
