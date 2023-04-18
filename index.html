@@ -13,23 +13,27 @@
         <h1>Etch-a-Sketch</h1>
     </div>
 
-    <div id="container"></div>
-
-    <div class="lower">
-        <div class="buttons">
-            <button class="black">Black</button>
-            <button class="rainbow">Rainbow</button>
-            <button class="opaque">Opaque</button>
-            <button class="reset">Reset</button>
-        </div>
-
-        <div>
-            <input type="text" class="grid-size" value>
-            <button class="size-change">Submit</button>
-            <p>Change the grid size (1 to 100)</p>
-            <div class="error"></div>
+    <div id="middle">
+        <div id="container"></div>
+        <div class="lower">
+            <div class="buttons">
+                <button class="black">Black</button>
+                <button class="rainbow">Rainbow</button>
+                <button class="opaque">Opaque</button>
+                <button class="reset">Reset</button>
+            </div>
+            <div class="text-field">
+                <input type="text" class="grid-size" value>
+                <button class="size-change">Set Size</button>
+                <p>Change the grid size (1 to 100)</p>
+                <div class="error"></div>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <p>Copyright &copy; 2023 @ben1499</p>
+    </footer>
     
 </body>
 </html>

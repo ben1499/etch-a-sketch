@@ -9,6 +9,7 @@ const opaque = document.querySelector('.opaque')
 let div;
 let rowDiv;
 
+//Initial grid
 let num = 0;
 for (let i = 0; i < 16; i++) {
     rowDiv = document.createElement('div');
@@ -21,14 +22,11 @@ for (let i = 0; i < 16; i++) {
     }
 }
 
-function changeColor() {
-    this.style.backgroundColor = 'black';
-}
-
-
 
 let blocks = document.querySelectorAll('.block');
-blocks.forEach((block) => block.addEventListener('mouseenter', changeColor));
+blocks.forEach((block) => block.addEventListener('mouseenter', () => {
+    block.style.backgroundColor = 'black';
+}));
 
 function changeBlack() {
     blocks = document.querySelectorAll('.block');
@@ -66,14 +64,16 @@ black.addEventListener('click', changeBlack);
 rainbow.addEventListener('click', changeRainbow);
 opaque.addEventListener('click', changeOpaque);
 
-
+//Reset button
 reset.addEventListener('click', () => {
     blocks.forEach((block) => block.style.backgroundColor = 'white')
 })
 
+
+//Set grid size
 gridSubmit.addEventListener('click', () => {
     let gridSize = document.querySelector('.grid-size').value;
-    if (gridSize < 0 || gridSize > 100) {
+    if (gridSize <= 0 || gridSize > 100) {
         errorText.textContent = 'Enter a valid number';
         return;
     }
@@ -89,7 +89,7 @@ gridSubmit.addEventListener('click', () => {
         }
     }
     blocks = document.querySelectorAll('.block');
-    blocks.forEach((block) => block.addEventListener('mouseenter', changeColor));
+    blocks.forEach((block) => block.addEventListener('mouseenter', changeBlack));
 })
 
 
