@@ -4,7 +4,8 @@ const gridSubmit = document.querySelector('.size-change');
 const errorText = document.querySelector('.error');
 const black = document.querySelector(".black");
 const rainbow = document.querySelector('.rainbow');
-const opaque = document.querySelector('.opaque')
+const opaque = document.querySelector('.opaque');
+const eraser = document.querySelector('.eraser');
 
 let div;
 let rowDiv;
@@ -32,6 +33,13 @@ function changeBlack() {
     blocks = document.querySelectorAll('.block');
     blocks.forEach((block) => block.addEventListener('mouseenter', () => {
         block.style.backgroundColor = 'black';
+    }));
+}
+
+function changeWhite() {
+    blocks = document.querySelectorAll('.block');
+    blocks.forEach((block) => block.addEventListener('mouseenter', () => {
+        block.style.backgroundColor = 'white';
     }));
 }
 
@@ -63,6 +71,7 @@ function changeOpaque() {
 black.addEventListener('click', changeBlack);
 rainbow.addEventListener('click', changeRainbow);
 opaque.addEventListener('click', changeOpaque);
+eraser.addEventListener('click', changeWhite);
 
 //Reset button
 reset.addEventListener('click', () => {
