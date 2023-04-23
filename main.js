@@ -25,61 +25,133 @@ for (let i = 0; i < 16; i++) {
 
 
 let blocks = document.querySelectorAll('.block');
-blocks.forEach((block) => block.addEventListener('mouseenter', () => {
-    block.style.backgroundColor = 'black';
-}));
+// blocks.forEach((block) => block.addEventListener('mouseenter', () => {
+//     block.style.backgroundColor = 'black';
+// }));
 
-function changeBlack() {
+let alpha = 0;
+
+changeColor('black');
+
+function changeColor(selectedColor) {
     blocks = document.querySelectorAll('.block');
-    blocks.forEach((block) => block.addEventListener('mouseenter', () => {
-        block.style.backgroundColor = 'black';
-    }));
+    blocks.forEach((block) => {
+        block.addEventListener('mouseenter', () => {
+            if (selectedColor === 'rainbow') {
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                block.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            } else if (selectedColor == 'opaque') {
+                block.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+                let currentColorValue = block.style.getPropertyValue('background-color');
+                console.log(currentColorValue);
+                let currentAlphaValue = currentColorValue.slice(-2, -1);
+                currentAlphaValue = +currentAlphaValue;
+                if (currentAlphaValue <= 0.9) {
+                    block.style.backgroundColor = `rgba(0, 0, 0, ${currentAlphaValue + 0.1})`;
+               }
+            } else if (selectedColor == 'eraser') {
+                block.style.backgroundColor = '#fff';
+            }
+            block.style.backgroundColor = selectedColor;
+        })
+    })
+
 }
 
-function changeWhite() {
-    blocks = document.querySelectorAll('.block');
-    blocks.forEach((block) => block.addEventListener('mouseenter', () => {
-        block.style.backgroundColor = 'white';
-    }));
-}
 
-function changeRainbow() {
-    blocks = document.querySelectorAll('.block');
-    blocks.forEach((block) => block.addEventListener('mouseenter', () => {
-        const r = Math.floor(Math.random() * 256);
-        const g = Math.floor(Math.random() * 256);
-        const b = Math.floor(Math.random() * 256);
-        block.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    }));
-}
+black.addEventListener('click', () => {
+    changeColor('black');
+});
 
-let a = 0; //alpha value for rgba
+rainbow.addEventListener('click', () => {
+    changeColor('rainbow');
+});
 
-function changeOpaque() {
-    blocks = document.querySelectorAll('.block');
-    blocks.forEach((block) => block.addEventListener('mouseenter', () => {
-        a += 0.1;
-        a = a.toFixed(1);
-        a = +a;
-        if (a > 1) {
-            a = 0.1;
-        } 
-        block.style.backgroundColor = `rgba(0, 0, 0, ${a})`;
-    }));
-}
+opaque.addEventListener('click', () => {
+    changeColor('opaque');
+})
 
-black.addEventListener('click', changeBlack);
-rainbow.addEventListener('click', changeRainbow);
-opaque.addEventListener('click', changeOpaque);
-eraser.addEventListener('click', changeWhite);
+eraser.addEventListener('click', () => {
+    changeColor('eraser');
+})
 
-//Reset button
 reset.addEventListener('click', () => {
-    blocks.forEach((block) => block.style.backgroundColor = 'white')
+    blocks.forEach((block) => {
+        block.style.backgroundColor = 'white';
+    })
 })
 
 
-//Set grid size
+
+
+
+
+
+
+
+
+
+
+
+// function changeBlack() {
+//     blocks = document.querySelectorAll('.block');
+//     blocks.forEach((block) => block.addEventListener('mouseenter', () => {
+//         block.style.backgroundColor = 'black';
+//     }));
+// }
+
+// function changeWhite() {
+//     blocks = document.querySelectorAll('.block');
+//     blocks.forEach((block) => block.addEventListener('mouseenter', () => {
+//         block.style.backgroundColor = 'white';
+//     }));
+// }
+
+// function changeRainbow() {
+//     blocks = document.querySelectorAll('.block');
+//     blocks.forEach((block) => block.addEventListener('mouseenter', () => {
+//         const r = Math.floor(Math.random() * 256);
+//         const g = Math.floor(Math.random() * 256);
+//         const b = Math.floor(Math.random() * 256);
+//         block.style.opacity = 1;
+//         block.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+//     }));
+// }
+
+// let a = 0; //alpha value for rgba
+
+// function changeOpaque() {
+//     blocks = document.querySelectorAll('.block');
+//     blocks.forEach((block) => {
+//         block.addEventListener('mouseenter', () => {
+//             block.style.opacity = (block.style.opacity == 0) ?
+//             0.1 : (block.style.opacity == 0.1) ?
+//             0.2 : (block.style.opacity == 0.2) ?
+//             0.3 : (block.style.opacity == 0.3) ?
+//             0.4 : (block.style.opacity == 0.4) ?
+//             0.5 : (block.style.opacity == 0.5) ?
+//             0.6 : (block.style.opacity == 0.6) ?
+//             0.7 : (block.style.opacity == 0.7) ?
+//             0.8 : (block.style.opacity == 0.8) ?
+//             0.9 : (block.style.opacity == 0.9) ?
+//             1.0 : 1.0;
+//     })});
+// }
+
+// black.addEventListener('click', changeBlack);
+// rainbow.addEventListener('click', changeRainbow);
+// opaque.addEventListener('click', changeOpaque);
+// eraser.addEventListener('click', changeWhite);
+
+// //Reset button
+// reset.addEventListener('click', () => {
+//     blocks.forEach((block) => block.style.backgroundColor = 'white')
+// })
+
+
+// Set grid size
 gridSubmit.addEventListener('click', () => {
     let gridSize = document.querySelector('.grid-size').value;
     if (gridSize <= 0 || gridSize > 100) {
